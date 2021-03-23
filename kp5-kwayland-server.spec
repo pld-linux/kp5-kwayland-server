@@ -1,18 +1,18 @@
 # TODO:
 # wayland-scanner from wayland project
 #
-%define		kdeplasmaver	5.21.2
+%define		kdeplasmaver	5.21.3
 %define		qtver		5.9.0
 %define		kpname		kwayland-server
 
 Summary:	Qt-style Client and Server library wrapper for the Wayland libraries
 Name:		kp5-%{kpname}
-Version:	5.21.2
+Version:	5.21.3
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	8134521afe71486f7862ee1fb21ec898
+# Source0-md5:	ce14af4eaa1c43d0f95af779ff1e7326
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{_datadir}/qlogging-categories5/kwaylandserver.categories
-%attr(755,root,root) %ghost %{_libdir}/libKWaylandServer.so.5
+%ghost %{_libdir}/libKWaylandServer.so.5
 %attr(755,root,root) %{_libdir}/libKWaylandServer.so.*.*.*
 
 %files devel
@@ -77,4 +77,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cmake/KWaylandServer/KWaylandServerConfigVersion.cmake
 %{_libdir}/cmake/KWaylandServer/KWaylandServerTargets-pld.cmake
 %{_libdir}/cmake/KWaylandServer/KWaylandServerTargets.cmake
-%attr(755,root,root) %{_libdir}/libKWaylandServer.so
+%{_libdir}/libKWaylandServer.so
