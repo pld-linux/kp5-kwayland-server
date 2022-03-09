@@ -1,18 +1,18 @@
 # TODO:
 # wayland-scanner from wayland project
 #
-%define		kdeplasmaver	5.24.2
+%define		kdeplasmaver	5.24.3
 %define		qtver		5.15.2
 %define		kpname		kwayland-server
 
 Summary:	Qt-style Client and Server library wrapper for the Wayland libraries
 Name:		kp5-%{kpname}
-Version:	5.24.2
+Version:	5.24.3
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	8a1807ad332b05f6d95bbfea2fec4de3
+# Source0-md5:	89d3c8d7b2ce217630009c24de4223a2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
