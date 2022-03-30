@@ -1,18 +1,21 @@
+#
+# Conditional build:
+%bcond_with	tests		# build with tests
 # TODO:
 # wayland-scanner from wayland project
 #
-%define		kdeplasmaver	5.24.3
+%define		kdeplasmaver	5.24.4
 %define		qtver		5.15.2
 %define		kpname		kwayland-server
 
 Summary:	Qt-style Client and Server library wrapper for the Wayland libraries
 Name:		kp5-%{kpname}
-Version:	5.24.3
+Version:	5.24.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	89d3c8d7b2ce217630009c24de4223a2
+# Source0-md5:	e186ec1eddf8bb89a200ea5709d2af06
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
@@ -48,9 +51,14 @@ Pliki nagłówkowe dla programistów używających %{kpname}.
 install -d build
 cd build
 %cmake \
+	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
 %{__make}
+
+%if %{with tests}
+ctest
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
